@@ -1,0 +1,172 @@
+@width-space: 2%;
+
+@width-column: (100 - (@width-space * 13)) / 12;
+
+.calc-width(@mult){
+    width: (@width-column * @mult) + (@width-space * (@mult - 1));
+}
+
+.calc-offset(@mult){
+    margin-left: (@width-column * @mult) + (@width-space * (@mult + 1));
+}
+
+[class^="col-"]{
+    display: inline-block;
+    margin-left: @width-space;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    font-size: 0;
+    margin-bottom: @width-space;
+    width: 100%;
+}
+
+.order-1{
+  order: 1;
+}
+
+.order-2{
+  order: 2;
+}
+
+.order-3{
+  order: 3;
+}
+
+.order-4{
+  order: 4;
+}
+
+.order-5{
+  order: 5;
+}
+
+.order-6{
+  order: 6;
+}
+
+.order-7{
+  order: 7;
+}
+
+.order-8{
+  order: 8;
+}
+
+.order-9{
+  order: 9;
+}
+
+.order-10{
+  order: 10;
+}
+
+.order-11{
+  order: 11;
+}
+
+.order-12{
+  order: 12;
+}
+ 
+.col {
+  &-1 {
+    .calc-width(1);
+  }
+  &-2 {
+    .calc-width(2);
+  }
+  &-3 {
+    .calc-width(3);
+  }
+  &-4 {
+    .calc-width(4);
+  }
+  &-5 {
+    .calc-width(5);
+  }
+  &-6 {
+    .calc-width(6);
+  }
+  &-7 {
+    .calc-width(7);
+  }
+  &-8 {
+    .calc-width(8);
+  }
+  &-9 {
+    .calc-width(9);
+  }
+  &-10 {
+    .calc-width(10);
+  }
+  &-11 {
+    .calc-width(11);
+  }
+  &-12 {
+    .calc-width(12);
+  }
+}
+
+.offset {
+  &-1 {
+    .calc-offset(1);
+  }
+  &-2 {
+    .calc-offset(2);
+  }
+
+  &-3 {
+    .calc-offset(3);
+  }
+  &-4 {
+    .calc-offset(4);
+  }
+  &-5 {
+    .calc-offset(5);
+  }
+  &-6 {
+    .calc-offset(6);
+  }
+  &-7 {
+    .calc-offset(7);
+  }
+  &-8 {
+    .calc-offset(8);
+  }
+  &-9 {
+    .calc-offset(9);
+  }
+  &-10 {
+    .calc-offset(10);
+  }
+  &-11 {
+    .calc-offset(11);
+  }
+}
+
+@media(max-width: 576px){
+
+    [class^="col-"]{
+        .calc-width(12);
+    }
+
+    [class^="col-"] + [class^="col-"]{
+        margin-top: @width-space;
+    }
+
+    [class*="offset-"]{
+        margin-left: @width-space;
+    }
+
+    .row{
+      flex-direction: column;
+    }
+
+    .row > [class*="order-"]{
+      margin-top: @width-space;
+    }
+}
+

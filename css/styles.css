@@ -1,0 +1,159 @@
+@import "reset.css";
+@import "screen.css";
+[class^="col-"] {
+  display: inline-block;
+  margin-left: 2%;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  font-size: 0;
+  margin-bottom: 2%;
+  width: 100%;
+}
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.order-3 {
+  order: 3;
+}
+.order-4 {
+  order: 4;
+}
+.order-5 {
+  order: 5;
+}
+.order-6 {
+  order: 6;
+}
+.order-7 {
+  order: 7;
+}
+.order-8 {
+  order: 8;
+}
+.order-9 {
+  order: 9;
+}
+.order-10 {
+  order: 10;
+}
+.order-11 {
+  order: 11;
+}
+.order-12 {
+  order: 12;
+}
+.col-1 {
+  width: 6.16666667%;
+}
+.col-2 {
+  width: 14.33333333%;
+}
+.col-3 {
+  width: 22.5%;
+}
+.col-4 {
+  width: 30.66666667%;
+}
+.col-5 {
+  width: 38.83333333%;
+}
+.col-6 {
+  width: 47%;
+}
+.col-7 {
+  width: 55.16666667%;
+}
+.col-8 {
+  width: 63.33333333%;
+}
+.col-9 {
+  width: 71.5%;
+}
+.col-10 {
+  width: 79.66666667%;
+}
+.col-11 {
+  width: 87.83333333%;
+}
+.col-12 {
+  width: 96%;
+}
+.offset-1 {
+  margin-left: 10.16666667%;
+}
+.offset-2 {
+  margin-left: 18.33333333%;
+}
+.offset-3 {
+  margin-left: 26.5%;
+}
+.offset-4 {
+  margin-left: 34.66666667%;
+}
+.offset-5 {
+  margin-left: 42.83333333%;
+}
+.offset-6 {
+  margin-left: 51%;
+}
+.offset-7 {
+  margin-left: 59.16666667%;
+}
+.offset-8 {
+  margin-left: 67.33333333%;
+}
+.offset-9 {
+  margin-left: 75.5%;
+}
+.offset-10 {
+  margin-left: 83.66666667%;
+}
+.offset-11 {
+  margin-left: 91.83333333%;
+}
+@media (max-width: 576px) {
+  [class^="col-"] {
+    width: 96%;
+  }
+  [class^="col-"] + [class^="col-"] {
+    margin-top: 2%;
+  }
+  [class*="offset-"] {
+    margin-left: 2%;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .row > [class*="order-"] {
+    margin-top: 2%;
+  }
+}
+a.link {
+  color: #00BCD4;
+}
+body {
+  background-color: #FFFFFF;
+  font-family: sans-serif;
+}
+h1 {
+  font-size: 4rem;
+}
+html {
+  font-size: 10px;
+}
+p {
+  font-size: 1.7rem;
+}
+header > h1,
+footer {
+  padding: 1rem 0;
+  text-align: center;
+}
+[class^="col-"] {
+  background-color: #00BCD4;
+}
