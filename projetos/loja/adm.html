@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>VueFire Todo App Demo</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+        <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input
+        v-model.trim="newModelo"        
+        placeholder="Modelo"
+      >
+      <input
+        v-model.trim="newMarca"
+        placeholder="Marca"
+      >
+      <input
+        v-model.trim="newValor"
+        placeholder="Valor"
+      >
+      <input
+        v-model.trim="newCor"
+        placeholder="Cor"
+      >
+      <input
+        v-model.trim="newImg"
+        placeholder="img"
+      >
+      <input
+        v-model.trim="newStatus"
+        placeholder="Status"
+      >
+      <button @click="addProduto">Salvar</button>
+      <ul>
+        <li v-for="produto in produtos">
+          <input
+            :value="produto.modelo"
+            @input="updateModeloText(produto, $event.target.value)"
+          >
+          <input
+            :value="produto.valor"
+            @input="updateValorText(produto, $event.target.value)"
+          >
+          <input
+            :value="produto.img"
+            @input="updateImgText(produto, $event.target.value)"
+          >
+          <input
+            :value="produto.status"
+            @input="updateStatusText(produto, $event.target.value)"
+          >
+          <button @click="removeProduto(produto)">X</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      /* global Vue, firebase */
+      var db = firebase.initializeApp({
+        databaseURL: 'https://lennonsantos-50dc4.firebaseio.com/'
+      }).database()
+      var produtosRef = db.ref('produtos')
+      new Vue({
+        el: '#app',
+        data: {
+          newModelo: '',
+          newMarca: '',
+          newCor: '',
+          newImg: '',
+          newValor: '',
+          newStatus: ''
+        },
+        firebase: {
+          produtos: produtosRef.limitToLast(25)
+        },
+        methods: {
+          addProduto: function () {
+              produtosRef.push({
+                modelo: this.newModelo,
+                img: this.newImg,
+                cor: this.newCor,
+                valor: this.newValor,
+                marca: this.newMarca,
+                status: this.newStatus
+              })
+              this.newModelo = ''
+              this.newMarca = ''
+              this.newCor = ''
+              this.newImg = ''
+              this.newValor = ''
+              this.newStatus = ''
+          },
+          updateModeloText: function (produto, newText) {
+            produtosRef.child(produto['.key']).child('modelo').set(newText)
+          },
+           updateImgText: function (produto, newText) {
+            produtosRef.child(produto['.key']).child('img').set(newText)
+          },
+           updateMarcaText: function (produto, newText) {
+            produtosRef.child(produto['.key']).child('marca').set(newText)
+          },
+           updateValorText: function (produto, newText) {
+            produtosRef.child(produto['.key']).child('valor').set(newText)
+          },
+           updateCorText: function (produto, newText) {
+            produtosRef.child(produto['.key']).child('cor').set(newText)
+          },
+          updateStatusText: function (produto, newText) {
+            produtosRef.child(produto['.key']).child('status').set(newText)
+          },
+          removeProduto: function (produto) {
+            produtosRef.child(produto['.key']).remove()
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

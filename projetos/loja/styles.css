@@ -1,0 +1,82 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+header{
+    margin-top: 2%;
+}
+.menu{
+    background-color: #333;
+}
+.menu-link{
+    color: #fff;
+    display: inline-block;
+    font-size: 1.7rem;
+    text-decoration: none;
+    transition: background-color .5s;
+    padding: 1.5rem 1rem;
+    vertical-align: middle;
+}
+.menu-link:hover, .menu-link:focus{
+    background-color: #444;
+}
+.menu-link span::before{
+    color: #aaa;
+    content: "▼";
+    font-size: 1.2rem;
+}
+
+.produto{
+    /*background-color: #ecf0f1;*/
+    box-shadow: 0px 0px 3px #ddd;
+}
+.produto > h1{
+    background-color: #fff; 
+    color: #333; 
+    font-size: 2rem;
+    padding: .5rem;
+    text-align: center;
+}
+.produto > img{
+    display: block;
+    height: 300px;
+    margin: 1rem auto;
+    object-fit: cover;
+    width: 150px;
+}
+.produto .btn{
+    padding: .5rem;
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #7f8c8d;
+    font-size: 1.5rem;
+}
+.produto .btn.btn-gostei{
+    font-size: 3rem;
+}
+.produto .btn.btn-gostei:hover{
+    color: #e74c3c;
+}
+.produto .btn.btn-interesse:hover{
+    color: #f39c12;
+}
+.produto .btn.btn-compartilhar:hover{
+    color: #3498db;
+}
+.produto .group-btn{
+    background-color: #ecf0f1;
+    text-align: center;
+}
+.produto .group-tag{
+    text-align: center;
+}
+.produto .tag{
+    font-size: 1.5rem;
+    padding: 0 .5rem;  
+}
+.produto .valor{
+    background-color: #34495e;
+    color: #fff;      
+}

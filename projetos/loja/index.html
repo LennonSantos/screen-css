@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Loja</title>
+        <link rel="stylesheet" href="../../css/styles.css">
+        <link rel="stylesheet" href="slider.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+        <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    </head>
+    <body class="">
+        <div class="screen">
+            <header>
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Fix My Phone</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="menu">
+                            <a href="#" class="menu-link">Iphone 7</a>
+                            <a href="#" class="menu-link">Iphone 6s</a>
+                            <a href="#" class="menu-link">Iphone 6</a>
+                            <a href="#" class="menu-link">Iphone 5s</a>
+                            <a href="#" class="menu-link">Acessórios <span></span></a>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <section>
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Produtos</h2>
+                    </div>
+                </div>
+                <div id="produtos" class="row">
+                    <div class="col-3" v-for="item in anArray">
+                        <article class="produto">
+                            <h1>{{item.modelo}}</h1>
+                            <div class="group-tag">
+                                <span class="tag valor">R${{item.valor}},00</span>
+                                <span class="tag status">{{item.status}}</span>
+                            </div>
+                            <img  v-bind:src="item.img" alt="" title=""/>
+                            <div class="group-btn">
+                                <button class="btn btn-interesse">Tenho Interesse</button>
+                                <button class="btn btn-compartilhar">Compartilhar</button>
+                                <button class="btn btn-gostei">♡</button>                                
+                            </div>
+                        </article>
+                    </div> <!-- .col-3 -->
+                </div>
+            </section>
+        </div> <!-- .screen -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>

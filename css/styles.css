@@ -193,13 +193,13 @@
     margin-left: 91.83333333%;
   }
 }
-@media (min-width: 993px) {
-  .margin-top-col {
+@media (max-width: 992px) {
+  .margin-top-tablet {
     margin-top: 2%;
   }
 }
-@media (min-width: 769px) {
-  .margin-top-tablet {
+@media (min-width: 993px) {
+  .margin-top-col {
     margin-top: 2%;
   }
 }
@@ -239,6 +239,6 @@ footer {
   padding: 1rem 0;
   text-align: center;
 }
-[class^="col-"] {
+.development [class^="col-"] {
   background-color: rgba(0, 0, 0, 0.2);
 }

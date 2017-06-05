@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Screen CSS</title>
+        <link rel="stylesheet" href="../../css/styles.css">
+        <link rel="stylesheet" href="styles.css">
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <!-- Firebase -->
+        <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+        <!-- VueFire -->
+        <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    </head>
+    <body>
+        <div class="screen">
+            <div id="demo">
+                <!--<pre>{{ anObject }}</pre>-->
+                <ul>
+                    <li v-for="item in anArray">{{ item.modelo }}</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+        var config = {
+            apiKey: "AIzaSyBIIDO9G-cqPIfiJpcbEH4xZ89ywp4NAjQ",
+            authDomain: "lennonsantos-50dc4.firebaseapp.com",
+            databaseURL: "https://lennonsantos-50dc4.firebaseio.com",
+            projectId: "lennonsantos-50dc4",
+            storageBucket: "lennonsantos-50dc4.appspot.com",
+            messagingSenderId: "341619828154"
+        };
+        var firebaseApp = firebase.initializeApp(config)
+            var db = firebaseApp.database()
+
+            var vm = new Vue({
+            el: '#demo',
+            firebase: {
+                // simple syntax, bind as an array by default
+                anArray: db.ref('produtos').limitToLast(2),
+                // can also bind to a query
+                // anArray: db.ref('url/to/my/collection').limitToLast(25)
+                // full syntax
+                anObject: {
+                source: db.ref('produtos'),
+                // optionally bind as an object
+                asObject: true,
+                // optionally provide the cancelCallback
+                cancelCallback: function () {},
+                // this is called once the data has been retrieved from firebase
+                readyCallback: function () {}
+                }
+            }
+        })
+        </script>
+    </body>
+</html>
